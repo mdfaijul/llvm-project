@@ -356,6 +356,7 @@ SPIRVLegalizerInfo::SPIRVLegalizerInfo(const SPIRVSubtarget &ST) {
       .legalFor({s1, s128})
       .legalFor(allFloatAndIntScalarsAndPtrs)
       .legalFor(allowedVectorTypes)
+      .legalIf(extendedScalarsAndVectors)
       .moreElementsToNextPow2(0)
       .fewerElementsIf(vectorElementCountIsGreaterThan(0, MaxVectorSize),
                        LegalizeMutations::changeElementCountTo(
